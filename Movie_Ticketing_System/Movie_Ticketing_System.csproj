@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adult.cs" />
+    <Compile Include="CinemaHall.cs" />
+    <Compile Include="Movie.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Screening.cs" />
+    <Compile Include="SeniorCitizen.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="Ticket.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
