@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movie_Ticketing_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
+        Title="" Height="650" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="529*"/>
+        </Grid.RowDefinitions>
+        <TextBox Name="AppTitle" Grid.Row="0" Grid.Column="0" Text="Movie Ticketing System" HorizontalAlignment="Center" FontSize="35" FontWeight="UltraBold"/>
+        <ComboBox Name="MainMenu" Grid.Column="0" Grid.Row="1" Loaded="ComboBox_Loaded" FontSize="20" SelectionChanged="MainMenu_SelectionChanged"/>
     </Grid>
 </Window>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Student Number : S10171663,  s10171069
+//Student name   : Samuel Ong, Seow Chong
+//Module Group   : IT05
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +28,12 @@ namespace Movie_Ticketing_System
         }
         public override string ToString()
         {
-            return String.Format("{0,-35}{1,-9}{2,-20}{3,-14}{4}", Title, Duration, Classification, OpeningDate);
+            string genrelist = GenreList[0];
+            for (int i = 1; i < GenreList.Count; i++)
+            {
+                genrelist += ", " + GenreList[i];
+            }
+            return String.Format("{0,-35}{1,-9}{2,-20}{3,-14}{4}{5}", Title, Duration, Classification, OpeningDate, genrelist);
         }
     }
 }
