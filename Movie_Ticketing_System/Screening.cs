@@ -33,6 +33,7 @@ namespace Movie_Ticketing_System
             screeningCount++;
             ScreeningDateTime = screeningdatetime;
             ScreeningType = screeningType;
+            SeatsRemaining = cinemahall.Capacity;
             CinemaHall = cinemahall;
             Movie = movie;
         }

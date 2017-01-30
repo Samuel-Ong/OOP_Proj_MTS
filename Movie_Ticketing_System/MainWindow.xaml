@@ -5,14 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movie_Ticketing_System"
         mc:Ignorable="d"
-        Title="" Height="650" Width="800">
-    <Grid>
+        Title="" Height="650" Width="800"
+        ResizeMode="NoResize"
+        Name="RootWindow">
+    <Grid Name="RootGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="56*"/>
             <RowDefinition Height="35*"/>
             <RowDefinition Height="529*"/>
         </Grid.RowDefinitions>
-        <TextBox Name="AppTitle" Grid.Row="0" Grid.Column="0" Text="Movie Ticketing System" HorizontalAlignment="Center" FontSize="35" FontWeight="UltraBold"/>
-        <ComboBox Name="MainMenu" Grid.Column="0" Grid.Row="1" Loaded="ComboBox_Loaded" FontSize="20" SelectionChanged="MainMenu_SelectionChanged"/>
+        <TextBox Name="AppTitle" Grid.Row="0" HorizontalAlignment="Center" FontSize="35" FontWeight="UltraBold" Margin="177,0,197.6,34.2" Width="419" Text="Movie Ticketing System" Grid.RowSpan="2" IsReadOnly="True"/>
+        <ComboBox Name="MainMenu" Grid.Column="0" Loaded="ComboBox_Loaded" FontSize="20" SelectionChanged="MainMenu_SelectionChanged" Margin="0,55,-0.4,0.2" Visibility="Hidden" Grid.RowSpan="2"/>
+        <TextBox Name="MainMenuTB" Grid.Column="0" GotFocus="MainMenuTB_GotFocus" Text="Click this box to begin!" Margin="0,55,-0.4,0.2" Grid.RowSpan="2" FontSize="20"/>
     </Grid>
 </Window>

@@ -13,7 +13,17 @@ namespace Movie_Ticketing_System
     {
         public string Title { get; set; }
         public int Duration { get; set; }
-        public string Classification { get; set; }
+        private string classification;
+        public string Classification
+        {
+            get { return classification; }
+            set
+            { if (new List<string>() { "G", "PG13", "NC16", "M18", "R21"}.Contains(value))
+                {
+                    classification = value;
+                }
+            }
+        }
         public DateTime OpeningDate { get; set; }
         public List<string> GenreList { get; set; } = new List<string>();
 
