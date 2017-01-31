@@ -17,7 +17,7 @@ namespace Movie_Ticketing_System
         private string screeningType;
         public string ScreeningType
         { 
-            get { return ScreeningType; }
+            get { return screeningType; }
             set { if (value == "2D" || value == "3D") screeningType = value; }
         }
 
@@ -32,7 +32,7 @@ namespace Movie_Ticketing_System
             ScreeningNo = Convert.ToString(screeningCount);
             screeningCount++;
             ScreeningDateTime = screeningdatetime;
-            ScreeningType = screeningType;
+            ScreeningType = screeningtype;
             SeatsRemaining = cinemahall.Capacity;
             CinemaHall = cinemahall;
             Movie = movie;

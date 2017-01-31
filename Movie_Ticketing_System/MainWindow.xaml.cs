@@ -30,8 +30,7 @@ namespace Movie_Ticketing_System
             new Movie("The Great Wall", 103, "NC16", new DateTime(2016,12,29), new List<string>() {"Action", "Adventure" }),
             new Movie("Rogue One: A Star Wars Story", 134, "PG13", new DateTime(2016,12,15), new List<string>() {"Action", "Adventure" }),
             new Movie("Office Christmas Party", 106, "M18", new DateTime(2017,1,15), new List<string>() {"Comedy" }),
-            new Movie("Power Rangers", 120, "G", new DateTime(2017,1,31), new List<string>() {"Fantasy", "Thriller" }),
-            new Movie("50 Shades of Grey", 4, "R21", new DateTime(2011, 6, 20), new List<string>() {"Action", "Nudity", "Sexual References", "Violence", "Sadistic", "Masochistic", "Profanities" })
+            new Movie("Power Rangers", 120, "G", new DateTime(2017,1,31), new List<string>() {"Fantasy", "Thriller" })
         };
         static List<CinemaHall> cinemaHallList = new List<CinemaHall>()
         {
@@ -75,7 +74,6 @@ namespace Movie_Ticketing_System
 
         private void MainMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            AppTitle.Text = Convert.ToString(MainMenu.SelectedIndex);
             switch (MainMenu.SelectedIndex)
             {
                 case 0:
@@ -156,7 +154,7 @@ namespace Movie_Ticketing_System
                 moviegenre += ", " + movieList[movieindex].GenreList[i];
             }
             //Displays the details in the DetailBox
-            DataTxtBox.Text = string.Format("{0}{1}\n{2}{3}\n{4}{5}\n{6}{7}\n{8}{9}-{10}-{11}", "Title : ", movieList[movieindex].Title, "Duration : ", movieList[movieindex].Duration, "Genre : ", moviegenre, "Classification : ", movieList[movieindex].Classification, "Opening Date : ", movieList[movieindex].OpeningDate.Day, movieList[movieindex].OpeningDate.ToString("MMM", CultureInfo.InvariantCulture), movieList[movieindex].OpeningDate.Year);
+            DataTxtBox.Text = string.Format("{0}{1}\n{2}{3}\n{4}{5}\n{6}{7}\n{8}{9}", "Title : ", movieList[movieindex].Title, "Duration : ", movieList[movieindex].Duration, "Genre : ", moviegenre, "Classification : ", movieList[movieindex].Classification, "Opening Date : ", movieList[movieindex].OpeningDate.ToString("dd-MMM-yy", CultureInfo.InvariantCulture));
         }
 
         private void AddMovieScreening()
@@ -298,7 +296,7 @@ namespace Movie_Ticketing_System
         private void Opt2_Finalised_Click(object sender, RoutedEventArgs e, Window screen, int cinemaindex, int movieindex, string screeningtype, string datetime)
         {
             DateTime dateTime;
-            if (!DateTime.TryParse(datetime, out dateTime))
+            if (!DateTime.TryParseExact(datetime, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
             {
                 MessageBox.Show("Invalid input");
                 return;
@@ -347,9 +345,9 @@ namespace Movie_Ticketing_System
             DataTxtBox.Text = "";
             foreach (Screening screening in screeningList)
             {
-                if (screening.Movie == movieListBox.SelectedItem)
+                if (Convert.ToString(movieListBox.SelectedItem) == screening.Movie.Title)
                 {
-                    DataTxtBox.Text += string.Format("{0}{1}{2}{3}{4}{5}","Location : ", screening.Movie.Title, "\nType : ", screening.ScreeningType, "\nDate/Time", Convert.ToString(screening.ScreeningDateTime), "\nSeats Remaining", Convert.ToString(screening.SeatsRemaining));
+                    DataTxtBox.Text += string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}","Location : ", screening.CinemaHall.Name, "\nMovie : ", screening.Movie.Title, "\nType : ", screening.ScreeningType, "\nDate/Time : ", Convert.ToString(screening.ScreeningDateTime), "\nSeats Remaining : ", Convert.ToString(screening.SeatsRemaining) + "\n\n");
                     found = true;
                 }
             }
