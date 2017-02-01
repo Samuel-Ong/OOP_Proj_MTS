@@ -273,7 +273,7 @@ namespace Movie_Ticketing_System
             //Loading all the important things
             screeningType.ItemsSource = new List<String>() { "3D", "2D" };
             Grid.SetRow(screeningType, 0);
-            TextBlock screeningDateTime = new TextBlock() { Text = "Screening date and time [e.g.DD/MM/YYYY HH:MM]", TextWrapping = TextWrapping.Wrap };
+            TextBlock screeningDateTime = new TextBlock() { Text = "Screening date and time [e.g.01/01/2017 23:59](24 Hour format)", TextWrapping = TextWrapping.Wrap };
             Grid.SetRow(screeningDateTime, 1);
             TextBox inputbox = new TextBox() { Text = "Please type here" };
             Grid.SetRow(inputbox, 2);
